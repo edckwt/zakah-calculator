@@ -1,19 +1,19 @@
 <?php
 /*
 Plugin Name: Zakah Calculator
-Plugin URI: http://www.islam.com.kw/
+Plugin URI: https://wordpress.org/plugins/zakah-calculator/
 Description: It is a simple and easy way to know how to fulfill the obligation of Zakah. Just enter the amount of money and you will get the amount you should give out.
-Version: 1.2
+Version: 1.6
 Author: EDC Team (E-Da`wah Committee)
-Author URI: http://www.islam.com.kw/
+Author URI: https://edc.org.kw
 */
-	
+
 class Zakah_Calculator extends WP_Widget {
 	private $plugin_base_id = 'zakah_calculator_widget';
 	private $plugin_domain = 'zakah_calculator_domain';
 	private $plugin_title = 'Zakah Calculator';
 	private $plugin_description = 'Add Zakah Calculator in sidebar.';
-	
+
 	function __construct() {
 		parent::__construct($this->plugin_base_id, __($this->plugin_title, $this->plugin_domain), array('description' => __($this->plugin_description, $this->plugin_domain)));
 	}
@@ -21,12 +21,12 @@ class Zakah_Calculator extends WP_Widget {
 	public function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$type = $instance['type'];
-		
+
 		$text_your_amount = ( !empty($instance['text_your_amount']) ) ? strip_tags( $instance['text_your_amount'] ) : 'Your Amount';
 		$text_your_zakah = ( !empty($instance['text_your_zakah']) ) ? strip_tags( $instance['text_your_zakah'] ) : 'Your Zakah';
 		$text_calculate = ( !empty($instance['text_calculate']) ) ? strip_tags( $instance['text_calculate'] ) : 'Calculate';
 		$text_reset = ( !empty($instance['text_reset']) ) ? strip_tags( $instance['text_reset'] ) : 'Reset';
-		
+
 		wp_enqueue_script('zakah-js', plugin_dir_url( __FILE__ ).'js/zakah.js', array ( 'jquery' ), 1.0, false);
 		wp_enqueue_style('zakah-css', plugin_dir_url( __FILE__ ).'css/style.css',false,'1.0','all');
 
@@ -67,7 +67,7 @@ class Zakah_Calculator extends WP_Widget {
 			echo '</div>';
 			echo '<div id="zakah_result"></div>';
 		}
-			
+
 		echo '<div class="zakah_input">';
 		echo '<input type="reset" name="reset" onclick="reset_zakah_print()" value="'. __($text_reset, $this->plugin_domain) .'"> <input name="calculate" type="button" id="calculate" value="'. __($text_calculate, $this->plugin_domain) .'">';
 		echo '</div>';
@@ -76,7 +76,7 @@ class Zakah_Calculator extends WP_Widget {
 
 		echo $args['after_widget'];
 	}
-		
+
 	public function form( $instance ) {
 		if(isset($instance[ 'title' ])){
 			$title = esc_attr($instance['title']);
@@ -93,12 +93,12 @@ class Zakah_Calculator extends WP_Widget {
 			$text_calculate = '';
 			$text_reset = '';
 		}
-		
+
 		$inputs = '<p>';
 		$inputs .= '<label for="'.$this->get_field_id( 'title' ).'">'. __('Title:', $this->plugin_domain) .'</label>';
 		$inputs .= '<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.$title.'" />';
 		$inputs .= '</p>';
-		
+
 		$inputs .= '<p>';
 		$inputs .= '<label for="'.$this->get_field_id('type').'">';
 		if($type){ $type_checked = ' checked="checked"'; }else{ $type_checked = ''; }
@@ -106,22 +106,22 @@ class Zakah_Calculator extends WP_Widget {
 		$inputs .= __('Result by input', $this->plugin_domain);
 		$inputs .= '</label>';
 		$inputs .= '</p>';
-		
+
 		$inputs .= '<p>';
 		$inputs .= '<label for="'.$this->get_field_id( 'text_your_amount' ).'">'. __('Your Amount text:', $this->plugin_domain) .'</label>';
 		$inputs .= '<input class="widefat" id="'.$this->get_field_id('text_your_amount').'" name="'.$this->get_field_name('text_your_amount').'" type="text" value="'.$text_your_amount.'" />';
 		$inputs .= '</p>';
-		
+
 		$inputs .= '<p>';
 		$inputs .= '<label for="'.$this->get_field_id( 'text_your_zakah' ).'">'. __('Your Zakah text:', $this->plugin_domain) .'</label>';
 		$inputs .= '<input class="widefat" id="'.$this->get_field_id('text_your_zakah').'" name="'.$this->get_field_name('text_your_zakah').'" type="text" value="'.$text_your_zakah.'" />';
 		$inputs .= '</p>';
-		
+
 		$inputs .= '<p>';
 		$inputs .= '<label for="'.$this->get_field_id( 'text_calculate' ).'">'. __('Calculate text:', $this->plugin_domain) .'</label>';
 		$inputs .= '<input class="widefat" id="'.$this->get_field_id('text_calculate').'" name="'.$this->get_field_name('text_calculate').'" type="text" value="'.$text_calculate.'" />';
 		$inputs .= '</p>';
-		
+
 		$inputs .= '<p>';
 		$inputs .= '<label for="'.$this->get_field_id( 'text_reset' ).'">'. __('Reset text:', $this->plugin_domain) .'</label>';
 		$inputs .= '<input class="widefat" id="'.$this->get_field_id('text_reset').'" name="'.$this->get_field_name('text_reset').'" type="text" value="'.$text_reset.'" />';
@@ -129,7 +129,7 @@ class Zakah_Calculator extends WP_Widget {
 
 		echo $inputs;
 	}
-	
+
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';

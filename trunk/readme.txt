@@ -1,10 +1,10 @@
 === Zakah Calculator ===
 Contributors: EDC Team
-Donate link: http://www.edc.org.kw
+Donate link: https://edc.org.kw
 Tags: Zakah, zakat, muslim, Islam, Islamic, Calculator, zakat calculator, EDC
 Requires at least: 3.0
-Tested up to: 5.0.1
-Stable tag: 1.2
+Tested up to: 6.5.3
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ It is a simple and easy way to know how to fulfill the obligation of Zakah.
 
 It is a simple and easy way to know how to fulfill the obligation of Zakah. Just enter the amount of money and you will get the amount you should give out.
 
-PS: Owned by EDC [(E-Da`wah Committee)](http://www.edc.org.kw), For Support click to [Islam.com.kw](http://www.islam.com.kw/).
+PS: Owned by EDC [(E-Da`wah Committee)](https://edc.org.kw), For Support click to [Islam.com.kw](https://www.islam.com.kw/).
 
 == Installation ==
 
@@ -29,6 +29,18 @@ PS: Owned by EDC [(E-Da`wah Committee)](http://www.edc.org.kw), For Support clic
 3. View on your site.
 
 == Changelog ==
+
+= 1.6 =
+* Update: Function.
+
+= 1.5 =
+* Update: Function.
+
+= 1.4 =
+* Update: Function.
+
+= 1.3 =
+* Update: Function.
 
 = 1.2 =
 * Update: Function.

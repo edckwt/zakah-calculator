@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Zakah Calculator
-Plugin URI: https://wordpress.org/plugins/zakah-calculator/
+Plugin URI: http://www.islam.com.kw/
 Description: It is a simple and easy way to know how to fulfill the obligation of Zakah. Just enter the amount of money and you will get the amount you should give out.
-Version: 1.6
+Version: 1.4
 Author: EDC Team (E-Da`wah Committee)
-Author URI: https://edc.org.kw
+Author URI: http://www.islam.com.kw/
 */
 
 class Zakah_Calculator extends WP_Widget {
